@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
+    user: root
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=@MsSql12345
+    ports:
+      - 1433:1433
+    volumes:
+      - mssql_volume:/var/opt/mssql
+
+volumes:
+  mssql_volume:

@@ -1,0 +1,4 @@
+# ignore volume directory
+data
+log
+secrets
