@@ -10,7 +10,7 @@ services:
     ports:
       - 1433:1433
     volumes:
-      - mssql_volume:/var/opt/mssql
+      - ./data:/var/opt/mssql/data
+      - ./log:/var/opt/mssql/log
+      - ./secrets:/var/opt/mssql/secrets
 
-volumes:
-  mssql_volume:
