@@ -3,6 +3,7 @@ version: '3.4'
 services:
   mssql:
     image: mcr.microsoft.com/mssql/server:2019-CU15-ubuntu-20.04
+    container_name: mssql
     user: root
     environment:
       - ACCEPT_EULA=Y
@@ -13,4 +14,16 @@ services:
       - ./data:/var/opt/mssql/data
       - ./log:/var/opt/mssql/log
       - ./secrets:/var/opt/mssql/secrets
+    networks:
+      - stack_network
 
+  tools:
+    image: mcr.microsoft.com/mssql-tools
+    container_name: tools
+    stdin_open: true
+    tty: true
+    networks:
+      - stack_network
+
+networks:
+  stack_network:
