@@ -1,48 +1,48 @@
 
-create table employee
+CREATE TABLE employee
 (
-    empnum char (4),
-    empname varchar (15),
-    hiredate datetime,
-    salary int,
-    position varchar (15),
-    depno char (2),
-    mgrno char (4),
-    constraint emloyee_pk primary key (empnum)
+    empnum CHAR(4),
+    empname VARCHAR(15),
+    hiredate DATETIME,
+    salary INT,
+    position VARCHAR(15),
+    depno CHAR(2),
+    mgrno CHAR(4),
+    CONSTRAINT emloyee_pk PRIMARY KEY (empnum)
 )
 
-create table dep
+CREATE TABLE dep
 (
-    depno char (2),
-    depname varchar (15),
-    location varchar (15),
-    constraint depno_pk primary key (depno)
+    depno CHAR(2),
+    depname VARCHAR(15),
+    location VARCHAR(15),
+    CONSTRAINT depno_pk PRIMARY KEY (depno)
 )
 
-create table project
+CREATE TABLE project
 (
-    projno char (2),
-    projdesc varchar (20),
-    startdate datetime,
-    enddate datetime,
-    budget int,
-    constraint projno_pk primary key (projno)
+    projno CHAR(2),
+    projdesc VARCHAR(20),
+    startdate DATETIME,
+    enddate DATETIME,
+    budget INT,
+    CONSTRAINT projno_pk PRIMARY KEY (projno)
 )
 
-create table projwork
+CREATE TABLE projwork
 (
-    projno char (2),
-    empnum char (4),
-    hours smallint
+    projno CHAR(2),
+    empnum CHAR(4),
+    hours SMALLINT
 )
 
-alter table employee
-    add constraint depno_fk foreign key (depno)
-    references dep(depno)
+ALTER TABLE employee
+    ADD CONSTRAINT depno_fk FOREIGN KEY (depno)
+    REFERENCES dep(depno)
 
-alter table projwork
-    add constraint projno_fk foreign key (projno)
-    references project(projno)
-alter table projwork
-    add constraint empnum_fk foreign key (empnum)
-    references employee(empnum)
+ALTER TABLE projwork
+    ADD CONSTRAINT projno_fk FOREIGN KEY (projno)
+    REFERENCES project(projno)
+ALTER TABLE projwork
+    ADD CONSTRAINT empnum_fk FOREIGN KEY (empnum)
+    REFERENCES employee(empnum)
